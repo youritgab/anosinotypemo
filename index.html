@@ -1,0 +1,107 @@
+<html>
+    <head>
+            <title>Ano ba talaga tayo?</title>
+            <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+<div id="input"> 
+    <h1>Select your type</h1>
+        <form id="traitForm">  
+                <h3>First Letter (Optional)</h3>
+                <input type="text" id="name" name="name">
+                <br>
+                <br>
+                <h3>Classmate?</h3>
+                <input type="radio" id="oo" name="class" value="oo">
+                <label for="oo">Oo</label>
+                <input type="radio" id="hindi" name="class" value="hindi">
+                <label for="hindi">Hindi</label>
+                <input type="radio" id="secret" name="class" value="secret">
+                <label for="secret">Secret</label>
+                <br>
+                <br>
+                <h3>Type</h3>
+                <input type="radio" id="chinita" name="race" value="chinita">
+                <label for="chinita">Chinita</label>
+                <br>
+                <input type="radio" id="mestiza" name="race" value="mestiza">
+                <label for="mestiza">Mestiza</label>
+                <br>
+                <input type="radio" id="morena" name="race" value="morena">
+                <label for="morena">Morena</label>
+                <br>
+                <br>
+                <!-- For seperating inputs -->
+                <h3>Student</h3>
+                <input type="radio" id="acad" name="school1" value="acad">
+                <label for="acad">Academic Achiever</label>
+                <br>
+                <input type="radio" id="sport" name="school2" value="sport">
+                <label for="sport">Student Athelete</label>
+                <br>
+                <input type="radio" id="leader" name="school3" value="leader">
+                <label for="leader">Student Leader</label>
+                <br>
+                <br>
+                <!-- For seperating inputs -->
+                <h3>Grade</h3>
+                <input type="radio" id="gr7" name="grade" value="gr7">
+                <label for="gr7">Grade 7</label>
+                <br>
+                <input type="radio" id="gr8" name="grade" value="gr8">
+                <label for="gr8">Grade 8</label>
+                <br>
+                <input type="radio" id="gr9" name="grade" value="gr9">
+                <label for="gr9">Grade 9</label>
+                <br>
+                <input type="radio" id="gr10" name="grade" value="gr10">
+                <label for="gr10">Grade 10</label>
+                <br>
+                <br>
+                <!-- For seperating inputs -->
+                Preferred Birthdate: <input type="month" id="bdaymonth" name="bday"> To <input type="month" id="bdaymonth2" name="bday">
+                <br>
+                <br>
+                <!-- For seperating inputs -->
+                <input type="submit" id="submit">
+        </form>
+</div>
+        <div id="stage2">
+                        <h1>Proccesing, please wait</h1>
+                    <image src="loading.gif" height="300" width="350">
+        </div>
+        <div id="stage3">
+                <video id="myVideo" autoplay muted playsinline disablepictureinpicture controlslist="nodownload nofullscreen noremoteplayback" style="pointer-events: none;" width="550" height="550">
+                <source src="sa'yo.mp4" type="video/mp4">
+                </video>
+        </div>
+    </body>
+    <script>
+  const video = document.getElementById('myVideo');
+  const form = document.getElementById('traitForm');
+  const inputDiv = document.getElementById('input');
+  const stage2Div = document.getElementById('stage2');
+  const stage3Div = document.getElementById('stage3');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    // Step 1: Show stage2, hide input and stage3
+    inputDiv.style.display = 'none';
+    stage2Div.style.display = 'block';
+    stage3Div.style.display = 'none';
+    document.addEventListener('click', () => {
+            video.muted = false;
+            video.currentTime = 0;
+            video.play();
+        }, { once: true });
+
+    // Step 2: After 5 seconds, show stage3
+    setTimeout(() => {
+    
+      stage2Div.style.display = 'none';
+      stage3Div.style.display = 'block';
+    }, 5000);
+  });
+    </script>
+</html>
