@@ -84,9 +84,8 @@
   const stage3Div = document.getElementById('stage3');
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form from refreshing the page
-
-    // Step 1: Show stage2, hide input and stage3
+    event.preventDefault();
+      
     inputDiv.style.display = 'none';
     stage2Div.style.display = 'block';
     stage3Div.style.display = 'none';
@@ -96,7 +95,6 @@
             video.play();
         }, { once: true });
 
-    // Step 2: After 5 seconds, show stage3
     setTimeout(() => {
     
       stage2Div.style.display = 'none';
@@ -104,4 +102,5 @@
     }, 5000);
   });
     </script>
+
 </html>
